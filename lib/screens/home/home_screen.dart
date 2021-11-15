@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   getDictionaryFormWidget(BuildContext context) {
+    //instatnce if cubit and provide new ui/ Rebuild hole screen
     final cubit = context.watch<DictionaryCubit>();
 
     return Container(
@@ -26,7 +27,6 @@ class HomeScreen extends StatelessWidget {
             controller: cubit.queryController,
             decoration: InputDecoration(
               hintText: "Search a word",
-
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide: BorderSide(color: Colors.transparent),

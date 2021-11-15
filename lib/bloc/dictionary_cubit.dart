@@ -11,6 +11,7 @@ class DictionaryCubit extends Cubit<DictionaryState> {
   final queryController = TextEditingController();
 
   Future getWordSearched() async {
+    //change state and return it to ui
     emit(WordSearchingState());
 
     try {
@@ -21,7 +22,7 @@ class DictionaryCubit extends Cubit<DictionaryState> {
         emit(ErrorState("There is some issue"));
       } else {
         emit(WordSearchedState(words));
-        emit(NoWordSearchedState());
+        // emit(NoWordSearchedState());
       }
     } on Exception catch (e) {
       print(e);
@@ -36,7 +37,7 @@ class DictionaryCubit extends Cubit<DictionaryState> {
 
 abstract class DictionaryState {}
 
-//first state without word
+//Initial state
 class NoWordSearchedState extends DictionaryState {}
 
 class WordSearchingState extends DictionaryState {}
